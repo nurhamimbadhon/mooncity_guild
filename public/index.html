@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>Free Fire Guild Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+
+<div class="header">
+  <h1>Free Fire Guild Dashboard</h1>
+  <p>Guild ID: <b>3085195487</b></p>
+</div>
+
+<div class="top-bar">
+  <input id="searchInput" placeholder="Search member...">
+  
+  <select id="sortSelect">
+    <option value="level">Sort by Level</option>
+    <option value="name">Sort by Name</option>
+    <option value="rank">Sort by Rank</option>
+  </select>
+</div>
+
+<div id="guildInfo" class="card"></div>
+
+<h2 class="section-title">Top 5 Members</h2>
+<div id="topFive" class="card"></div>
+
+<h2 class="section-title">All Members</h2>
+<div id="members" class="card"></div>
+
+<h2 class="section-title">Members Growth Chart</h2>
+<canvas id="growthChart"></canvas>
+
+<script src="app.js"></script>
+</body>
+</html>
