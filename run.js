@@ -15,7 +15,7 @@ app.use("/api/guild", guildAPI);
 // Fetch every 30 sec
 cron.schedule("*/30 * * * * *", fetchGuildData);
 
-// Initial fetch
+// Immediate first fetch
 fetchGuildData();
 
 const PORT = process.env.PORT || 3000;
