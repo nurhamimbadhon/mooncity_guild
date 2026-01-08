@@ -1,6 +1,6 @@
 const axios = require("axios");
 
-const GUILD_ID = "13649496777"; // your guild ID
+const GUILD_ID = "13649496777";
 let guildCache = null;
 
 async function fetchGuildData() {
@@ -9,16 +9,16 @@ async function fetchGuildData() {
     const res = await axios.get(url);
 
     if (res.data && res.data.guild) {
-      guildCache = res.data.guild;
-      console.log("Guild Updated:", new Date().toLocaleTimeString());
-    } else {
-      console.log("No guild data found!");
+      guildCache = {
+        ...res.data.guild,
+        lastUpdated: new Date().toISOString(),
+        totalMembers: res.data.guild.members.length
+      };
+      console.log("Guild updated:", new Date().toLocaleTimeString());
     }
   } catch (err) {
-    console.log("Fetch Error:", err.message);
+    console.log("Error:", err.message);
   }
-
-  return guildCache;
 }
 
 module.exports = {
